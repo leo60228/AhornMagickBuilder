@@ -1,8 +1,8 @@
 language: julia
 os:
-  - linux
+- linux
 julia:
-  - 1.0
+- 1.0
 notifications:
   email: false
 git:
@@ -10,24 +10,24 @@ git:
 cache:
   timeout: 1000
   directories:
-    - downloads
+  - downloads
 env:
   global:
-    - BINARYBUILDER_DOWNLOADS_CACHE=downloads
-    - BINARYBUILDER_AUTOMATIC_APPLE=true
+  - BINARYBUILDER_DOWNLOADS_CACHE=downloads
+  - BINARYBUILDER_AUTOMATIC_APPLE=true
 sudo: required
 before_script:
-  - julia -e 'import Pkg; Pkg.add(Pkg.PackageSpec(url="https://github.com/JuliaPackaging/BinaryBuilder.jl", rev="master"))'
-  - julia -e 'import Pkg; Pkg.add("BinaryProvider")'
+- julia -e 'import Pkg; Pkg.add(Pkg.PackageSpec(url="https://github.com/JuliaPackaging/BinaryBuilder.jl",
+  rev="master"))'
+- julia -e 'import Pkg; Pkg.add("BinaryProvider")'
 script:
-  - julia build_tarballs.jl
+- julia build_tarballs.jl
 deploy:
   provider: releases
   api_key:
-    secure: WaDDlNlaL3hY9r0R4Y/TS3aVjqDQFkUBDaAVOgmBLN5MiNeGXOZ2Dmh8nS0/0IvJSJf8VOBiHIiYrUwB97VRAUJedE7I9vCly0kDix4uu/GDUav8oimUu9vdP4HHR2jZhK/jYv41Xi9+egXuWKjBNU3aPhjRXrkv+uCWuAJBE5+qJHlR5NJbjtYCaVEsedPnYNjVNHBleJI7QRyqkScp6UikaT9HnKu6tQSJRcUfpxiAJCL/MZqPEifXLUG7U2d4roLtTjLcZnQmtikGNWPOGcK8JrbiBwtPtl6X3WevcPa5c89HgmzS7Lakgcla+leiM1GzJVFfQG8ufBoGmBY0P563wbouV9YJM/2WOk2FomqWsE9Qq2Af/cLjoOdZ8H1ZftBTz9YkaClyFTampxslO3n2Y+974DjLB1C/VkYDb5rjAk598ja5Aisc2AGJsVJny8WIbEXf9tAzGUYY7TDib4rAptvso+jaIwnIsZupEzfipe6OEPyIIHBdWABHZVsxDlX0TrKj4ajF5zigS4xa5RwXwCslCXlUvg5zQohMmlUzePRRo6paN1N6KCxbGRBspnX+cYELS8RGO+RcUNFfkoB581/M7tz/8btzsOoW3GNo405zNiE46DE229CGP17IjaCd0HT5seieWYc/ruTgKmANEBDF5INRjm36l/G0SPY=
+    secure: OPoZCsFdjCkC5ve78GmJASIugxLdQ+2lkiltDfjbM3pBcG+7MPwbPTqS6C0lhP2FVquvaKs3Ri4EvzW+Iah6gGkCTAzKtFQrO/SCS46vE6ejpX1zI4743CtGfY4ttShia0PCFfJ+uxzInKfH3JCvbYkRzM3+fFMUVOjSw1aEAJys/v10SZllf/QpvFs7O1kMJxNRpT7fibCU7yYNCzqOnsoyd3b4WkIMoIcxbu0kSCfz3tt/1hMqAGKp1IysJ/1YX4lEO8Mpq421MrxrPdcc5IBEOR+85CU3YhvFhS/AH9XwFJ4jGf/CMmWZ+5p+hVUbRT133WAr4qHxJHkEvLOcLLyB4etHiiyeWcfcX/7BAuruRSCHB1cZeD8mFgysMyRs6r/V38fh2CHSoRP9YgXWu7RRUU3Jxcr5vbv8Av8gRpO+IBnMY189wmtXf1QfkSQnwP3zuOD5buyAgSNDaoKsuaSrh+ggmKWXLvnHAc2ReZn815mwMufNnIq7YrdRzyNVXGRqinNxHy/848hZdyqYOIE2Ie4ck1Tsrvu+758PxZyLD4idmaRwSgULpl2TVWhXmIxHB6yCC3NiOgik+8UuPm2tPebDaCk1GksSdZHQufO2NqekRY3MhhNzPae/cNnhulx6nC861wPrP499+mG2QFbYjdv+OO3IvHt+joi/ZtU=
   file_glob: true
   file: products/*
   skip_cleanup: true
   on:
-    repo: JuliaIO/ImageMagickBuilder
-    tags: true
+    repo: leo60228/AhornMagickBuilder
